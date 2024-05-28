@@ -5,13 +5,15 @@ class Program
 {
     static void Main()
     {
+        // Se declara una lista de strings para almacenar frutas
         List<string> frutas = new List<string>();
         int opcion;
 
         do
         {
-            Console.Clear(); 
+            Console.Clear(); // Limpia la consola antes de mostrar el menú
 
+            // Menú de opciones
             Console.WriteLine("Menu de Frutas");
             Console.WriteLine("1. Agregar fruta");
             Console.WriteLine("2. Eliminar fruta");
@@ -23,14 +25,16 @@ class Program
             switch (opcion)
             {
                 case 1:
+                    // Agregar fruta
                     Console.Write("Ingrese el nombre de la fruta a agregar: ");
                     string frutaAgregar = Console.ReadLine();
-                    frutas.Add(frutaAgregar);
+                    frutas.Add(frutaAgregar); // Agrega la fruta a la lista
                     Console.WriteLine($"{frutaAgregar} ha sido agregada a la lista.");
                     Console.WriteLine("Presione cualquier tecla para continuar...");
-                    Console.ReadKey(); 
+                    Console.ReadKey();
                     break;
                 case 2:
+                    // Eliminar fruta
                     Console.Write("Ingrese el nombre de la fruta a eliminar: ");
                     string frutaEliminar = Console.ReadLine();
                     bool frutaEliminada = false;
@@ -39,7 +43,7 @@ class Program
                     {
                         if (frutas[i].Equals(frutaEliminar, StringComparison.OrdinalIgnoreCase))
                         {
-                            frutas.RemoveAt(i);
+                            frutas.RemoveAt(i); // Elimina la fruta de la lista
                             frutaEliminada = true;
                             break;
                         }
@@ -54,26 +58,29 @@ class Program
                         Console.WriteLine($"{frutaEliminar} no se encontró en la lista.");
                     }
                     Console.WriteLine("Presione cualquier tecla para continuar...");
-                    Console.ReadKey(); 
+                    Console.ReadKey();
                     break;
                 case 3:
+                    // Mostrar todas las frutas
                     Console.WriteLine("Lista de frutas:");
                     foreach (string fruta in frutas)
                     {
                         Console.WriteLine(fruta);
                     }
                     Console.WriteLine("Presione cualquier tecla para continuar...");
-                    Console.ReadKey(); 
+                    Console.ReadKey();
                     break;
                 case 4:
+                    // Salir del programa
                     Console.WriteLine("Saliendo del programa...");
                     break;
                 default:
+                    // Opción no válida
                     Console.WriteLine("Opción no válida. Intente de nuevo.");
                     Console.WriteLine("Presione cualquier tecla para continuar...");
-                    Console.ReadKey(); 
+                    Console.ReadKey();
                     break;
             }
-        } while (opcion != 4);
+        } while (opcion != 4); // Continuar hasta que se seleccione la opción de salir
     }
 }
